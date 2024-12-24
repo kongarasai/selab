@@ -1,0 +1,147 @@
+mkdir van
+cd van
+git init
+touch q.txt
+git addd
+git status 
+notepad aa
+git commit -m "commit"
+'''
+git clone '''
+git checkout -b "any"
+git push origin any
+git pull origin main
+git add .
+git commit -m "updated"
+git push origin any
+
+
+
+
+
+
+mkdir zzz
+cd any
+touch index.html
+notepad index.html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My sunday Website</title>
+
+</head>
+
+<body>
+
+    <h1>Hello Ravi Teja</h1>
+
+    <h2>Hurriah! it's a weekend</h2>
+
+    <h3>uff it's a weekdays</h3>
+
+    <p>This is a simple website served using Docker and Nginx.</p>
+
+</body>
+
+</html>
+
+
+
+
+
+
+touch dockerfile
+notepad dockerfile 
+
+
+
+
+ 
+# Use the official Nginx image from Docker Hub
+FROM nginx:alpine
+
+# Copy the index.html file into the Nginx default public directory
+COPY index.html /usr/share/nginx/html/
+
+# Expose port 80 to allow external access to the website
+EXPOSE 80
+
+# Run Nginx in the foreground (default command for the Nginx container)
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+
+
+
+
+
+
+docker build -t zzz .
+docker run -d -p 8080:80 zzz
+docker ps
+
+
+
+
+
+
+
+
+# app.py
+from flask import Flask, jsonify
+
+app = Flask(_name_)
+
+@app.route('/')
+def home():
+    return jsonify(message="Welcome to the Flask API!")
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify(status="healthy")
+
+if _name_ == "_main_":
+    app.run(host="0.0.0.0", port=5000)
+
+
+
+
+
+
+
+
+# Use a lightweight Python base image
+FROM python:3.9-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy application files to the container
+COPY . /app
+
+# Install dependencies
+RUN pip install flask
+
+# Expose the application port
+EXPOSE 5000
+
+# Command to run the app
+CMD ["python", "app.py"]
+    
+
+
+
+
+
+
+
+
